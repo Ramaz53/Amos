@@ -1,0 +1,861 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenneth Amos | Portfolio</title>
+    <!-- Core External UI Resources -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cloudflare.com">
+    
+<!-- Font Awesome -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<!-- Three.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<!-- Your JS -->
+<script src="script.js" defer></script>
+
+</head>
+<body>
+
+    <!-- 1. Target Crosshair Cursor Layer -->
+    <div id="target-cursor" class="target-cursor-container">
+        <div class="target-cursor-dot"></div>
+        <div class="target-cursor-corner tc-top-left"></div>
+        <div class="target-cursor-corner tc-top-right"></div>
+        <div class="target-cursor-corner tc-bottom-left"></div>
+        <div class="target-cursor-corner tc-bottom-right"></div>
+    </div>
+
+    <!-- 2. Ambient Three.js Wave Background -->
+    <div id="dotted-surface-bg"></div>
+
+    <!-- 3. Navigation Header -->
+    <header>
+        <nav class="navbar">
+            <h1 class="logo">Portfolio</h1>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects-stack-1">Projects</a></li>
+                <li><a href="#research">Research</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Stream Container -->
+    <main class="container">
+        
+        <!-- Hero Section Frame -->
+        <section id="home" class="hero-section">
+            <div class="hero-left">
+                <h1>KENNETH AMOS</h1>
+                <h4>Electrical Engineer | Power Electronics & Industrial Automation</h4>
+                <p>"Bridging the gap between research and real-world engineering — One project at a time"</p>
+                <button class="magic-bito" onclick="window.location.href='#projects'">Explore Portfolio</button>
+            </div>
+            <div class="hero-right">
+                <!-- 3D Hanging Physics ID Strap Placement Anchor -->
+                <div id="lanyard-container">
+                    <div id="canvas-3d-lanyard"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section Layout Style -->
+        <section id="about" class="about-section">
+            <div class="about-left">
+                <h2>About Me</h2>
+                <p>I am Kenneth Amos, an Electrical Engineer specializing in power electronics, energy systems, and industrial automation. Graduating as the 2nd position holder of my batch from Hamdard University — a PEC-accredited institution ranked 43rd for Engineering and 55th overall in Pakistan (EduRank 2025) — I have built my career on a foundation of academic excellence and real-world experience. Since my first year of university I have been self-driven and financially independent, managing my personal expenses through private tutoring while pursuing my degree. Today I contribute both in academia as a Visiting Lab Engineer and in industry as a Trainee Electrical Engineer at Falcon Dynamic Engineering, where I have independently delivered automation solutions on industrial equipment. I am driven by a desire to build things that work in the real world — while continuously pushing my understanding 
+                    through hands-on research and self-driven projects in sustainable energy and intelligent systems..</p>
+            </div>
+            <div class="about-right">
+                <!-- Advanced Holographic Foil Profile Mesh -->
+                <div id="holographic-card-wrapper" class="pc-card-wrapper">
+                    <div class="pc-behind"></div>
+                    <div id="holographic-card-shell" class="pc-card-shell">
+                        <div class="pc-card">
+                            <div class="pc-inside"></div>
+                            <div class="pc-shine"></div>
+                            <div class="pc-glare"></div>
+                            <div class="pc-avatar-content">
+                                <div class="avatar-container-box">
+                                     <img src="profile card.jpeg" alt="Kenneth Amos">
+                                </div>
+                            </div>
+                            <div class="pc-user-info">
+                                <div class="pc-user-text">
+                                    <span class="pc-handle">Kenneth Amos</span> 
+                                    <span class="pc-status">Electrical Engineer</span>
+                                </div>
+                                <button class="pc-contact-btn" onclick="window.location.href='mailto:email@example.com'">Contact</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section Grid Layout -->
+        <section id="skills" class="skills-section">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="svg-icon-container"><i class="fa-solid fa-bolt animated-svg"></i></div>
+                    <p>Power Electronics</p>
+                </div>
+                <div class="skill-card">
+                    <div class="svg-icon-container"><i class="fa-solid fa-microchip animated-svg"></i></div>
+                    <p>Automation / PLC</p>
+                </div>
+                <div class="skill-card">
+                    <div class="svg-icon-container"><i class="fa-solid fa-code animated-svg"></i></div>
+                    <p>Embedded C++</p>
+                </div>
+                <div class="skill-card">
+                    <div class="svg-icon-container"><i class="fa-solid fa-chart-line animated-svg"></i></div>
+                    <p>MATLAB / Simulink</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Interactive Bento Grid -->
+        <section id="experience" class="experience-section">
+            <h2>Experience</h2>
+            <div class="bento-tabs-container">
+                <button class="bento-tab-btn active" onclick="switchBentoTab(event, 'professional-group')">Professional</button>
+                <button class="bento-tab-btn" onclick="switchBentoTab(event, 'internship-group')">Internship</button>
+                <button class="bento-tab-btn" onclick="switchBentoTab(event, 'volunteer-group')">Volunteer</button>
+            </div>
+
+            <!-- Tab Panels -->
+            <div id="professional-group" class="bento-group active">
+
+<div class="bento-grid">
+
+<div class="magic-bento-card particle-container">
+
+<div class="magic-bento-card__header">
+<span class="magic-bento-card__label">PROFESSIONAL EXPERIENCE</span>
+</div>
+
+
+<div class="magic-bento-card__content">
+
+<h3 class="magic-bento-card__title">
+Trainee Electrical Engineer
+</h3>
+
+<h4>
+Falcon Dynamic Engineering
+</h4>
+
+                <p class="experience-date">October 2025 — Present | Islamabad, Pakistan</p>
+
+                     <p class="magic-bento-card__description">Working on industrial automation, PLC systems and real-world engineering project delivery.</p>
+
+
+<ul class="experience-list">
+
+<li>
+<b>Sabroe Air Dryer Automation:</b>
+Replaced original controller with LOGO PLC based control system, configured web access and provided remote administration.
+</li>
+
+
+<li>
+<b>Ayub Medical Complex:</b>
+Diagnosed and restored corrupted PLC logic of offline boiler system.
+</li>
+
+
+<li>
+<b>Tender Documentation:</b>
+Prepared technical documentation resulting in successful project bids.
+</li>
+
+
+<li>
+Developed practical expertise in PLC programming and industrial control systems.
+</li>
+
+
+</ul>
+
+
+</div>
+
+</div>
+
+
+</div>
+</div>
+
+           <div id="internship-group" class="bento-group">
+
+<div class="bento-grid">
+
+
+<div class="magic-bento-card particle-container">
+
+
+<div class="magic-bento-card__header">
+<span class="magic-bento-card__label">
+INTERNSHIPS
+</span>
+</div>
+
+
+
+<div class="magic-bento-card__content">
+
+
+<h3 class="magic-bento-card__title">
+NTDC Internship
+</h3>
+
+
+<h4>
+Internee | July - August 2024
+</h4>
+
+
+<p class="experience-date">
+Islamabad, Pakistan
+</p>
+
+
+<p class="magic-bento-card__description">
+
+Exposure to Pakistan's national power transmission network and grid operations.
+
+</p>
+
+
+<ul class="experience-list">
+
+<li>
+National Control Centre observation of 500kV AC and 660kV HVDC transmission systems.
+</li>
+
+
+<li>
+Learned frequency control, grid stability and merit order dispatch.
+</li>
+
+
+<li>
+Observed Regional Control Centre operations including load balancing and feeder management.
+</li>
+
+
+<li>
+Exposure to Power Purchase Centre energy scheduling and pricing.
+</li>
+
+
+</ul>
+
+
+
+</div>
+
+</div>
+
+
+
+<div class="magic-bento-card particle-container">
+
+
+<div class="magic-bento-card__header">
+<span class="magic-bento-card__label">
+MARI ENERGIES LIMITED
+</span>
+</div>
+
+
+
+<div class="magic-bento-card__content">
+
+
+<h3 class="magic-bento-card__title">
+Electrical Engineering Intern
+</h3>
+
+
+<h4>
+August - September 2025
+</h4>
+
+
+<p class="experience-date">
+Dharian Field & Islamabad HQ
+</p>
+
+
+<ul class="experience-list">
+
+
+<li>
+Designed electrical load distribution schematic for MARI House facility.
+</li>
+
+
+<li>
+Developed VFD simulation using MATLAB Simulink.
+</li>
+
+
+<li>
+Created field extension design documentation.
+</li>
+
+
+<li>
+Worked with Electrical, HSE, Petroleum and Laboratory departments.
+</li>
+
+
+</ul>
+
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+ <div id="volunteer-group" class="bento-group">
+
+    <div class="bento-grid">
+
+
+        <!-- LAB ENGINEER CARD -->
+        <div class="magic-bento-card particle-container">
+
+            <div class="magic-bento-card__header">
+                <span class="magic-bento-card__label">
+                    TEACHING EXPERIENCE
+                </span>
+            </div>
+
+
+            <div class="magic-bento-card__content">
+
+
+                <h3 class="magic-bento-card__title">
+                    Visiting Lab Engineer
+                </h3>
+
+
+                <h4>
+                    Hamdard University
+                </h4>
+
+
+                <p class="experience-date">
+                    February 2026 — Present | Islamabad, Pakistan
+                </p>
+
+
+                <p class="magic-bento-card__description">
+
+                    Teaching laboratory sessions at Hamdard University
+                    on the recommendation of faculty, supervising students
+                    across multiple technical subjects.
+
+                </p>
+
+
+                <ul class="experience-list">
+
+                    <li>
+                        Teaching Digital Logic Design (DLD)
+                    </li>
+
+
+                    <li>
+                        Teaching Applied Physics
+                    </li>
+
+
+                    <li>
+                        Teaching Object Oriented Programming (OOP)
+                    </li>
+
+
+                    <li>
+                        Guiding students during laboratory activities,
+                        practical implementation and technical problem solving.
+                    </li>
+
+
+                </ul>
+
+
+            </div>
+
+        </div>
+
+
+
+
+
+        <!-- VOLUNTEER TEACHER CARD -->
+        <div class="magic-bento-card particle-container">
+
+
+            <div class="magic-bento-card__header">
+
+                <span class="magic-bento-card__label">
+                    VOLUNTEER EXPERIENCE
+                </span>
+
+            </div>
+
+
+
+            <div class="magic-bento-card__content">
+
+
+                <h3 class="magic-bento-card__title">
+                    Volunteer Teacher
+                </h3>
+
+
+                <h4>
+                    Rimsha Community School
+                </h4>
+
+
+                <p class="experience-date">
+                    Multiple Engagements | 2023 - 2026
+                </p>
+
+
+
+                <p class="magic-bento-card__description">
+
+                    Volunteered as a teacher at Rimsha Community School,
+                    supporting students through educational activities
+                    and learning sessions across multiple years.
+
+                </p>
+
+
+
+                <ul class="experience-list">
+
+
+                    <li>
+                        July – September 2023
+                    </li>
+
+
+                    <li>
+                        July – September 2024
+                    </li>
+
+
+                    <li>
+                        December 2025 – February 2026
+                    </li>
+
+
+                    <li>
+                        Assisted students with academic guidance
+                        and knowledge development.
+                    </li>
+
+
+                </ul>
+
+
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+
+
+</div>
+
+
+        </section>
+
+        <!-- Project 1 Deck Card Stack Display Layout -->
+<section id="projects-stack-1" class="projects-section"  scroll-behavior: smooth;>
+    <h2>Projects</h2>
+    <div class="project-display">
+
+        <div class="stack-wrapper">
+            <div class="stack-container">
+                <!-- Added 'active' to the first card -->
+                <div class="card-rotate active" data-project="0">
+                    <div class="card">
+                        <img src="1DataSet Sample.png" class="card-image" alt="Industrial Automation">
+                    </div>
+                </div>
+
+                <div class="card-rotate" data-project="1">
+                    <div class="card">
+                        <img src="2Output.png" class="card-image" alt="VFD Control">
+                    </div>
+                </div>
+
+                <div class="card-rotate" data-project="2">
+                    <div class="card">
+                        <img src="3Accuracy and Loss Plot.png" class="card-image" alt="Power System">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-details">
+
+            <!-- Added 'active' to data-project 0 -->
+            <div class="project-info active" data-project="0">
+                <h3>Cancer Detection Model</h3>
+                <p>[ Semester Project  |  Hamdard University ]
+Early and accurate cancer detection can be the difference between life and death. This project tackles that challenge by developing a Convolutional Neural Network (CNN) based image classification model capable of distinguishing between benign and malignant tissue from images of suspected cancerous areas. Built using TensorFlow and Keras with a ~10-layer CNN architecture, the model was trained on a publicly available Kaggle dataset with image augmentation techniques to improve generalization — producing a clinically relevant binary classification output.
+</p>
+                <div class="project-tech-tags">
+                    <span>Computer Vision</span><span>Binary Classification</span><span>Data Augmentation</span>
+                </div>
+            </div>
+
+            <div class="project-info" data-project="1">
+                <h3>Key Highlights:</h3>
+                <p>•	CNN-based binary image classifier (benign vs malignant)
+•	Built with TensorFlow & Keras (~10-layer CNN architecture) <br>
+•	Trained on publicly available Kaggle medical imaging dataset <br>
+•	Image augmentation for improved model generalization <br>
+•	Adam optimizer for model training
+
+  
+</p>
+                <div class="project-tech-tags">
+                    <span>TensorFlow / Keras</span><span>CNN & Image Augmentation</span><span>Adam Optimizer</span>
+                </div>
+            </div>
+            <div class="project-info" data-project="2">
+    <h3>Deep Learning Model Training & Evaluation</h3>
+    <p>
+        Model performance over 5 epochs demonstrating steady convergence. 
+        The network achieved a peak validation accuracy of ~77% while successfully
+         reducing validation loss down to ~0.44 without overfitting. <br>
+        <h4> Key Metrics Highlighted from the Charts:</h4> <br>
+Validation Accuracy: Reaches ~77% by epoch 4 (up from 61%). <br>
+
+Training Accuracy: Reaches ~73% by epoch 4 (up from 49%). <br>
+
+Validation Loss: Drops from ~0.69 to ~0.44. <br>
+
+Training Loss: Drops from ~0.80 to ~0.53.
+    </p>
+    <div class="project-tech-tags">
+        <span>Deep Learning</span>
+        <span>Model Evaluation</span>
+        <span>Python / Matplotlib</span>
+    </div>
+</div>
+
+        </div>
+    </div>
+</section>
+        <!-- Project 2 Deck Card Stack Display Layout -->
+<section id="projects-stack-2" class="projects-section"  scroll-behavior: smooth;>
+    <div class="project-display">
+
+        <div class="stack-wrapper">
+            <div class="stack-container">
+                <!-- Added 'active' to the first card -->
+                <div class="card-rotate active" data-project="0">
+                    <div class="card">
+                        <img src="regentrated.png" class="card-image" alt="Industrial Automation">
+                    </div>
+                </div>
+
+                <div class="card-rotate" data-project="1">
+                    <div class="card">
+                        <img src="2Ann vs PI SoC.png" class="card-image" alt="VFD Control">
+                    </div>
+                </div>
+
+                <div class="card-rotate" data-project="2">
+                    <div class="card">
+                        <img src="3IMG-20250822-WA0029.jpg" class="card-image" alt="Power System">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="project-details">
+
+            <!-- Added 'active' to data-project 0 -->
+            <div class="project-info active" data-project="0">
+                <h3>Regenerative Braking System with ANN Control  </h3>
+                <p> [ Final Year Project  |  Hamdard University  |  Best EE Department Project — Open House ]
+Electric vehicles lose significant energy during braking — energy that is simply wasted as heat in conventional systems. This project addresses that challenge by designing a regenerative braking system that recovers kinetic energy during braking and converts it back into usable electrical energy. To push performance further, the conventional PI controller was replaced with an Artificial Neural Network (ANN) trained on PI-generated data — resulting in a more adaptive and efficient control strategy that outperforms traditional approaches under varying operating conditions. Project formally documented as an undergraduate thesis.
+</p>
+</p>
+                <div class="project-tech-tags">
+                    <span>Computer Vision</span><span>Binary Classification</span><span>Data Augmentation</span>
+                </div>
+            </div>
+
+            <div class="project-info" data-project="1">
+                <h3>Key Highlights:</h3>
+                <p>•	Kinetic energy recovery through regenerative braking mechanism
+•	ANN-based controller replacing conventional PI control <br>
+•	ANN trained on PI controller data for optimized performance<br>
+•	Power electronics design & simulation in MATLAB/Simulink<br>
+•	Awarded Best EE Department Project at University Open House <br>
+•	Research paper currently in drafting phase
+
+  
+</p>
+                <div class="project-tech-tags">
+                    <span>TensorFlow / Keras</span><span>CNN & Image Augmentation</span><span>Adam Optimizer</span>
+                </div>
+            </div>
+                <div class="project-info" data-project="2">
+    <h3>Hardware Testing & Embedded System Prototype</h3>
+    <p>
+        A functional test bench setup for evaluating an embedded motor control system. 
+        The prototype integrates power electronics, signal processing boards, and live telemetry to monitor operational parameters during system testing.
+        <br>
+        <h4>Key Components Highlighted in the Setup:</h4>
+        <br>
+        <strong>Electric Motor:</strong> A blue industrial electric motor acting as the primary system load. <br>
+        <strong>Digital Multimeter:</strong> Live telemetry interface displaying a real-time reading of 343. <br>
+        <strong>Control & Power PCBs:</strong> Integrated microcontroller board paired with a power distribution stage. <br>
+        <strong>Custom Wire Routing:</strong> Organized diagnostic wiring connecting the control logic to the power grid.
+    </p>
+    <div class="project-tech-tags">
+        <span>Embedded Systems</span>
+        <span>Hardware Testing</span>
+        <span>Power Electronics</span>
+        <span>PCB Diagnostics</span>
+    </div>
+</div>
+
+        </div>
+    </div>
+</section>
+        <!-- Project 3 Deck Card Stack Display Layout -->
+<section id="projects-stack-3" class="projects-section"  scroll-behavior: smooth;>
+    <div class="project-display">
+
+        <div class="stack-wrapper">
+            <div class="stack-container">
+                <!-- Added 'active' to the first card -->
+                <div class="card-rotate active" data-project="0">
+                    <div class="card">
+                        <img src="1Simulation.png" class="card-image" alt="Industrial Automation">
+                    </div>
+                </div>
+
+                <div class="card-rotate" data-project="1">
+                    <div class="card">
+                        <img src="2P&O PV output.png" class="card-image" alt="VFD Control">
+                    </div>
+                </div>
+
+                <div class="card-rotate" data-project="2">
+                    <div class="card">
+                        <img src="3P&O Boost converter results.png" class="card-image" alt="Power System">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="project-details">
+
+            <!-- Added 'active' to data-project 0 -->
+            <div class="project-info active" data-project="0">
+                <h3>Hybrid Solar MPPT System</h3>
+                <p>[ Ongoing Post-Graduation Project ]
+Solar panels rarely operate at peak efficiency under real-world conditions — temperature shifts, partial shading, and irradiance variation constantly push them away from their optimal operating point. Standard Perturb & Observe (P&O) MPPT is accurate but converges slowly under large disturbances, while Lookup Table methods are fast but lack fine precision. This project addresses both limitations through a hybrid switching algorithm — when the error between actual and tracked power exceeds a defined threshold, the system switches to the Lookup Table for rapid approximation of the Maximum Power Point, then hands off to P&O for precise fine-tuning. The result is faster convergence without sacrificing accuracy under varying environmental conditions.
+</p>
+                <div class="project-tech-tags">
+                    <span>Hybrid MPPT</span><span>Perturb & Observe</span><span>Lookup Table</span>
+                </div>
+            </div>
+
+            <div class="project-info" data-project="1">
+                <h3>Key Highlights:</h3>
+                <p>•Hybrid switching between Lookup Table and Perturb & Observe (P&O) algorithms
+•	Lookup Table for fast MPP approximation under large disturbances<br>
+•	P&O for precise fine-tuning after initial approximation <br>
+•	Improved convergence speed and tracking accuracy <br>
+•	Research paper in progress
+
+  
+</p>
+                <div class="project-tech-tags">
+                    <span>Solar PV Systems</span><span>Control Systems</span><span>Power Optimization</span>
+                </div>
+            </div>
+
+            <div class="project-info" data-project="2">
+    <h3>P&O Boost Converter Simulation Results</h3>
+    <>
+        
+        Performance simulation of the dynamic response of a Boost Converter under Perturb & Observe (P&O) MPPT control over 2.0 seconds.<br><br>
+        <h4> Key Simulation Highlights:</h4> <br>
+             • <strong>Boost Current:</strong> Fast initial transient response reaching ~5A, maintaining steady-state dynamic tracking between 4A and 5A during irradiance steps.<br>
+        • <strong>Boost Voltage:</strong> Stabilizes near ~24V initially, dynamically adjusting down to ~18V–20V and back to ~22V under changing loads.<br>
+        • <strong>Power Output:</strong> Peak power tracking reaches ~120W, demonstrating fast recovery and continuous MPP tracking across varied operating conditions.
+    </p>
+    <div class="project-tech-tags">
+        <span>Boost Converter</span>
+        <span>P&O Algorithm</span>
+        <span>MATLAB / Simulink</span>
+    </div>
+</div>
+
+        </div>
+    </div>
+</section>
+        <!-- Project 4 Deck Card Stack Display Layout -->
+<section id="projects-stack-4" class="projects-section"  scroll-behavior: smooth;>
+    <div class="project-display">
+
+        <div class="stack-wrapper">
+            <div class="stack-container">
+                <!-- Added 'active' to the first card -->
+                <div class="card-rotate active" data-project="0">
+                    <div class="card">  <br>Visual documentation restricted due to <br> project confidentiality guidelines.
+                        <!-- <img src="1DataSet Sample.png" class="card-image" alt="Industrial Automation"> -->
+                    </div>
+                </div>
+
+                <div class="card-rotate" data-project="1">
+                    <div class="card"> <br>Visual documentation restricted due to <br> project confidentiality guidelines.
+                        <!-- <img src="2Output.png" class="card-image" alt="VFD Control"> -->
+                    </div>
+                </div>
+
+                <!-- <div class="card-rotate" data-project="2">
+                    <div class="card"> missing data technical falut 
+                         <img src="3Accuracy and Loss Plot.png" class="card-image" alt="Power System"> 
+                    </div>
+                </div> -->
+
+            </div>
+        </div>
+
+        <div class="project-details">
+
+            <!-- Added 'active' to data-project 0 -->
+            <div class="project-info active" data-project="0">
+                <h3>Intelligent Greenhouse System</h3>
+                <p>[ Semester Project  |  Hamdard University ]
+Maintaining precise environmental conditions in a greenhouse is a repetitive and error-prone task when done manually. This project solves that by building an automated monitoring and control system using Arduino and sensors to regulate temperature, humidity, and lighting in real time — removing the need for manual intervention and ensuring optimal conditions for plant growth.
+</p>
+                <div class="project-tech-tags">
+                    <span>Computer Vision</span><span>Binary Classification</span><span>Data Augmentation</span>
+                </div>
+            </div>
+
+            <div class="project-info" data-project="1">
+                <h3>Key Highlights:</h3>
+                <p>•Arduino-based embedded control system
+•	Multi-sensor integration for temperature, humidity, and lighting <br>
+•	Real-time automated environmental regulation <br>
+</p>
+                <div class="project-tech-tags">
+                    <span>TensorFlow / Keras</span><span>CNN & Image Augmentation</span><span>Adam Optimizer</span>
+                </div>
+            </div>
+
+            <!-- <div class="project-info" data-project="2">
+    <h3>Deep Learning Model Training & Evaluation</h3>
+    <p>
+        Model performance over 5 epochs demonstrating steady convergence. 
+        The network achieved a peak validation accuracy of ~77% while successfully
+         reducing validation loss down to ~0.44 without overfitting. <br>
+        <h4> Key Metrics Highlighted from the Charts:</h4> <br>
+Validation Accuracy: Reaches ~77% by epoch 4 (up from 61%). <br>
+
+Training Accuracy: Reaches ~73% by epoch 4 (up from 49%). <br>
+
+Validation Loss: Drops from ~0.69 to ~0.44. <br>
+
+Training Loss: Drops from ~0.80 to ~0.53.
+    </p>
+    <div class="project-tech-tags">
+        <span>Deep Learning</span>
+        <span>Model Evaluation</span>
+        <span>Python / Matplotlib</span>
+    </div>
+</div> -->
+
+        </div>
+    </div>
+</section>
+<section id="research" class="research-section">
+
+    <h2>Research</h2>
+
+    <div class="research-card">
+
+        <h3>
+            High Efficiency Buck-Boost Converter using Intelligent PWM Control
+        </h3>
+
+        <p>
+            This research focuses on designing high-efficiency DC-DC converters
+            with optimized PWM algorithms for industrial applications.
+            Simulation was performed using MATLAB/Simulink followed by hardware
+            implementation using embedded controllers.
+        </p>
+
+    </div>
+
+</section>
+<footer>
+
+    <h2>Let's Work Together</h2>
+
+    <p class="client-credit">
+        Open for Engineering Projects, Research Collaboration and Freelance
+        Development.
+    </p>
+
+    <div class="contact-links">
+
+        <a href="mailto:email@example.com">
+            Email
+        </a>
+
+        <a href="https://linkedin.com" target="_blank">
+            LinkedIn
+        </a>
+
+        <a href="https://github.com" target="_blank">
+            GitHub
+        </a>
+
+    </div>
+
+    <button id="back-to-top">
+        ↑ Back To Top
+    </button>
+
+</footer>
+</body>
+</html>
